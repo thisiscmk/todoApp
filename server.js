@@ -48,7 +48,7 @@ function passwordProtected(req, res, next){
     
 }
 
-myApp.use(passwordProtected) //This tell express to use the passwordProtected function as the first function for all the get and post routes
+// myApp.use(passwordProtected) //This tell express to use the passwordProtected function as the first function for all the get and post routes
 
 myApp.get('/', function(req, res){
     db.collection('items').find().toArray(function(err, items){
