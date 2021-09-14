@@ -7,6 +7,8 @@ let MongoClient = require('mongodb').MongoClient;
 //You must install the package using npm (npm install sanitize-html)
 let sanitizeHTML = require('sanitize-html')
 
+const dotenv = require('dotenv').config()
+
 //Create an objectId object that will be instantiated in line 17
 let ObjectId = require('mongodb').ObjectId;
 
@@ -16,7 +18,7 @@ let myApp = express()
 //Let heroku create their own port during deployment
 let port = process.env.PORT
 if(port == null || port == ""){ //if its running on localhost, assign it the port number 3000
-    port = 3000 
+    port = 3001 
 }
 
 //declare an empty database variable
@@ -25,9 +27,7 @@ let db
 myApp.use(express.static('public')) //express static serves(gives access) to the public folder and its content
 
 //specify a connection URL with the correct ip address and the name of the database you want to create.*/
-let connectionString = 'mongodb+srv://cmkAppUser:Kerene394@cluster0.ggemx.mongodb.net/TodoApp?retryWrites=true&w=majority'
-
-MongoClient.connect(connectionString, {useNewUrlParser: true}, function(err, client){
+MongoClient.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true}, function(err, client){
 
     db = client.db() //Creates a new Db instance sharing the current socket connections.
     myApp.listen(port)
