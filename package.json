@@ -8,8 +8,8 @@
     "error": "^10.4.0",
     "express": "^4.19.1",
     "mongodb": "^4.17.2",
-    "nodemon": "^2.0.12",
-    "sanitize-html": "^2.4.0"
+    "nodemon": "^2.0.22",
+    "sanitize-html": "^2.13.0"
   },
   "scripts": {
     "watch": "nodemon server",
