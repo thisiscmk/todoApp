@@ -31,6 +31,7 @@ MongoClient.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true}, funct
 
     db = client.db() //Creates a new Db instance sharing the current socket connections.
     myApp.listen(port)
+    console.log("Server is listening on port", port)
 })
 
 myApp.use(express.json()) //Tells express js to take asynchronous requests and add it to a body object on the request object
